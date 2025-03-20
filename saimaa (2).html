@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+  <title>Anna Dowlin</title>
+  <style>
+    body {
+      text-align: center;
+      background: url("https://i.pinimg.com/originals/52/3f/6c/523f6c884e637a307244bc0a110dd4a2.jpg");
+      <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+      background-size: cover;
+      background-position: center;
+      color: green;
+      font-family: helvetica;
+    }
+    p {
+      font-size: 21px;
+    }
+    input {
+      border: 0;
+      padding: 10px;
+      font-size: 18px;
+    }
+    input[type="submit"] {
+      background: yellow;
+      color: blue;
+    }
+  
+  </style>
+</head>
+<body>
+<img src="https://png.pngtree.com/element_our/20190602/ourmid/pngtree-holding-a-girl-holding-flowers-image_1395961.jpg">
+  <h1>Saima Akter</h1>
+  <p>Welcome to saima's flower wolrd!</p>
+  <input id="Name" type="name" placeholder="your name">
+  <input id="Email" type="email" placeholder="your email">
+  <input id="hobby" type="hobby" placeholder="What is your hobby">
+  <input id="submit" type="Submit">
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyD3A9mjWTmTT7pOMnEKfRxxFZmbbpRGdJ4",
+    authDomain: "sammy-s-project-6f85e.firebaseapp.com",
+    projectId: "sammy-s-project-6f85e",
+    storageBucket: "sammy-s-project-6f85e.firebasestorage.app",
+    messagingSenderId: "486783681427",
+    appId: "1:486783681427:web:852d39b292e20c48251e66",
+    measurementId: "G-QKNDSS6VLQ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  
+const Name = document.querySelector("#Name") 
+const Email = document.querySelector("#Email")
+const hobby = document.querySelector("#hobby")
+document.querySelector('#submit').addEventListener('click', Submit)
+  
+function Submit() {
+  const timestamp = buildTimestamp()
+  
+  set(ref(db, timestamp), {
+	  Name: Name.value,
+      email: Email.value,
+	  hobby: hobby.value,
+  });
+
+  Name.value = ""
+  Email.value = ""
+  hobby.value = ""
+}
+function buildTimestamp() {
+	  const now = new Date();
+	  let timestamp = now.getFullYear().toString() + "/";
+	  //const month = now.toLocaleString('default', { month: 'long' });
+
+	  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+	  month = month.toString()
+	  month = addLeadingZero(month)
+	  timestamp += month + "/"; 
+
+	  let date = now.getDate().toString()
+	  date = addLeadingZero(date)
+	  timestamp += date + "/";
+
+	  let hours = now.getHours().toString()
+	  hours = addLeadingZero(hours)
+	  timestamp += hours + ":";
+
+	  let minutes = now.getMinutes().toString()
+	  minutes = addLeadingZero(minutes)
+	  timestamp += minutes + ":";
+
+	  let seconds = now.getSeconds().toString()
+	  seconds = addLeadingZero(seconds)
+	  timestamp += seconds;
+  
+	  return timestamp
+	}
+	
+	function addLeadingZero(units) {
+		if (units.length < 2) {
+			units = "0" + units
+		}
+		return units
+	}
+
+
+  
+
+</script>
+  
+</body>
+  
