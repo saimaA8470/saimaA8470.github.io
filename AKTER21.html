@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Delius&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Leckerli+One&family=Modak&family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Yusei+Magic&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #232323;
+}
+input {
+font-size: 22px;
+}
+
+div {
+  height: 200px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+    font-family: "Delius", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+h1 {
+  font-family: 'Londrina Shadow', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: #aaaaaa;
+  margin: 60px 0 0 0;
+   font-family: "Delius Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+h2 {
+  text-align: center;
+  color: #bbbbbb;
+  margin: 0px 0 70px 0;
+  font-family: "Alumni Sans Pinstripe", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+ 
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG3jTszSflQt-SjZGIWqJRegF0GrAVzpCQtg&s");
+}
+.second{
+  background-image: url("https://oliviaadriance.com/wp-content/uploads/2023/07/Final_3_Crispy_Baked_Beef_Tacos_grain-free-dairy-free.jpg");
+}
+.dessert{
+  background-image: url("https://emmaduckworthbakes.com/wp-content/uploads/2022/01/Chocolate-Cheesecake-1.jpg");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+  input {
+  	font-size: 22px;
+  }
+  
+}
+
+</style> 
+
+</head>
+
+<body>
+<h1>saima's restaurant</h1> 
+<h2>a New York City eatery</h2>
+<div class="first"><input type="number" min="0" style="width: 50px" class="quantities"> 
+  <p>pancake <span class="price">$14</span><br />
+  <small>a flat cake, often thin and round, prepared from a starch-based batter that may contain eggs, milk, and butter, and then cooked on a hot surface such as a griddle or frying pan. It is a type of batter bread. </small></p>
+</div>
+<div class="second"><input type="number" min="0" style="width: 50px" class="quantities">
+  <p>tacos <span class="price">$22</span><br />
+  <small>The tortilla is then folded around the filling and eaten by hand. A taco can be made with a variety of fillings, including beef, pork, chicken, seafood, beans, vegetables, and cheese, and garnished with various condiments, such as salsa, guacamole, or sour cream, and vegetables, such as lettuce, coriander, onion, tomatoes, and chiles</small></p>
+</div>
+<div class="dessert"><input type="number" min="0" style="width: 50px"class="quantities">
+  <p>fruit cheesecake <span class="price">$8</span><br />
+  <small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p>
+</div>
+<br><br>
+<input id="Name" type="name" placeholder="your name">
+  <input id="Email" type="email" placeholder="your email">
+  <input id="submit" type="Submit">
+    <br><br>
+
+<script>
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+  
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAaN5sZEGZtY7d8kKqjhuu0bk1haC0rIqM",
+    authDomain: "butterfly-dd846.firebaseapp.com",
+    databaseURL: "https://butterfly-dd846-default-rtdb.firebaseio.com",
+    projectId: "butterfly-dd846",
+    storageBucket: "butterfly-dd846.firebasestorage.app",
+    messagingSenderId: "761122138900",
+    appId: "1:761122138900:web:bf3eef1aa970ca981ff001",
+    measurementId: "G-DNYLPKTMNQ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getDatabase(app); 
+  const Name = document.querySelector("#Name") 
+  const Email = document.querySelector("#Email")
+  document.querySelector('#submit').addEventListener('click', Submit)
+   const quantities = document.querySelectorAll(".quantities")
+
+  const itemsList = ["pancake", "tacos", "cheesecake"]
+
+  
+  
+  function Submit() {
+	  
+    const timestamp = buildTimestamp()
+	   let total = 0 
+	  let cart = { }
+	  	for  (let i=0; i<quantities.length; i=i+1) {
+	  	  if (quantities[i].value != "0" && quantities[i].value != "") {
+	let price = prices[i].innerHTML.replace('$', '')
+		total = total + quantities[i].value * price 
+			  	
+	  	    cart[itemsList[i]] = parseInt(quantities[i].value) 
+	  	  }
+	  	  quantities[i].value = ""
+	  	}
+	 
+	  
+  
+    set(ref(db, timestamp), {
+  	  Name: Name.value,
+      email: Email.value,
+	  cart: cart,
+      totalPrice: total,
+      paid: "not yet",
+	
+		
+    });
+
+    Name.value = ""
+    Email.value = ""
+  
+	
+  }
+  function buildTimestamp() {
+  	  const now = new Date();
+  	  let timestamp = now.getFullYear().toString() + "/";
+  	  //const month = now.toLocaleString('default', { month: 'long' });
+
+  	  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+  	  month = month.toString()
+  	  month = addLeadingZero(month)
+  	  timestamp += month + "/"; 
+
+  	  let date = now.getDate().toString()
+  	  date = addLeadingZero(date)
+  	  timestamp += date + "/";
+
+  	  let hours = now.getHours().toString()
+  	  hours = addLeadingZero(hours)
+  	  timestamp += hours + ":";
+
+  	  let minutes = now.getMinutes().toString()
+  	  minutes = addLeadingZero(minutes)
+  	  timestamp += minutes + ":";
+
+  	  let seconds = now.getSeconds().toString()
+  	  seconds = addLeadingZero(seconds)
+  	  timestamp += seconds;
+  
+  	  return timestamp
+  	}
+	
+  	function addLeadingZero(units) {
+  		if (units.length < 2) {
+  			units = "0" + units
+  		}
+  		return units
+  	}
+ const prices = document.querySelectorAll(".price") 
+
+  
+</script> 
+</body>
